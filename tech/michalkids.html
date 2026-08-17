@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MichalKids — used technologies</title>
+<meta name="description" content="Technology stack behind MichalKids: GCP, Kubernetes, Talos Linux, PostgreSQL, GitHub Actions, Grafana/Mimir/Loki, Tailscale, native Android and iOS apps.">
+<link rel="canonical" href="https://pazdyga.pl/tech/michalkids.html">
+<link rel="alternate" hreflang="en" href="https://pazdyga.pl/tech/michalkids.html">
+<link rel="alternate" hreflang="pl" href="https://pazdyga.pl/pl/tech/michalkids.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MichalKids — used technologies">
+<meta property="og:description" content="Cloud, Kubernetes, data and CI/CD stack behind MichalKids.">
+<meta property="og:url" content="https://pazdyga.pl/tech/michalkids.html">
+<meta name="robots" content="index,follow">
+<style>
+  :root{
+    --tlo:#fbfaf7; --tekst:#16161a; --cichy:#5c5c66; --linia:#e2e0da; --akcent:#7a2e1e;
+    --karta:#ffffff;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --tlo:#121214; --tekst:#ecebe6; --cichy:#9a9aa3;
+           --linia:#2a2a2f; --akcent:#c96f52; --karta:#1a1a1d; }
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--tlo); color:var(--tekst);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .strona{max-width:56rem;margin:0 auto;padding:clamp(2rem,6vw,5rem) clamp(1.25rem,5vw,2.5rem)}
+  .jezyk{display:flex;justify-content:space-between;margin-bottom:1.25rem;font-size:.85rem}
+  .jezyk a{color:var(--cichy)}
+  header{border-bottom:1px solid var(--linia);padding-bottom:2rem;margin-bottom:2.5rem}
+  h1{font-size:clamp(1.5rem,4vw,2.1rem);line-height:1.2;margin:0 0 .5rem;letter-spacing:-.02em}
+  .rola{color:var(--cichy);font-size:1.05rem;margin:0}
+  h2{font-size:.8rem;text-transform:uppercase;letter-spacing:.09em;color:var(--cichy);
+     margin:2.75rem 0 1rem;font-weight:600}
+  h2:first-of-type{margin-top:0}
+  p{margin:0 0 1rem;max-width:42rem}
+  ul{margin:0;padding:0;list-style:none}
+  .uslugi{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+  .uslugi li{background:var(--karta);border:1px solid var(--linia);border-radius:.5rem;padding:1rem 1.1rem}
+  .uslugi strong{display:block;margin-bottom:.3rem}
+  .uslugi span{color:var(--cichy);font-size:.92rem}
+  a{color:var(--akcent);text-underline-offset:.2em}
+  a:hover{text-decoration-thickness:2px}
+  footer{border-top:1px solid var(--linia);margin-top:3.5rem;padding-top:1.5rem;
+         color:var(--cichy);font-size:.85rem}
+</style>
+</head>
+<body>
+<main class="strona">
+
+  <nav class="jezyk">
+    <a href="/#michalkids">← pazdyga.pl</a>
+    <a href="/pl/tech/michalkids.html" hreflang="pl">Polski</a>
+  </nav>
+
+  <header>
+    <h1>MichalKids — used technologies</h1>
+    <p class="rola">Cloud, Kubernetes, data and CI/CD behind a family-safety app running in production across Android, iOS and Windows.</p>
+  </header>
+
+  <h2>Cloud &amp; infrastructure</h2>
+  <ul class="uslugi">
+    <li><strong>Google Cloud Platform</strong><span>Compute, networking and managed services for the production environment.</span></li>
+    <li><strong>Terraform</strong><span>Infrastructure as code, applied through review gates.</span></li>
+    <li><strong>Hetzner Cloud</strong><span>Host for the self-hosted observability stack.</span></li>
+  </ul>
+
+  <h2>Kubernetes &amp; runtime</h2>
+  <ul class="uslugi">
+    <li><strong>GKE Autopilot</strong><span>Managed Kubernetes running production workloads.</span></li>
+    <li><strong>Talos Linux</strong><span>Self-managed on-prem Kubernetes cluster for development and CI.</span></li>
+    <li><strong>Helm, cert-manager, ingress-nginx, external-dns</strong><span>Cluster add-ons for releases, TLS, routing and DNS.</span></li>
+    <li><strong>Longhorn</strong><span>Distributed block storage for stateful workloads.</span></li>
+  </ul>
+
+  <h2>Data</h2>
+  <ul class="uslugi">
+    <li><strong>PostgreSQL</strong><span>Primary datastore, managed in both cloud and development environments.</span></li>
+    <li><strong>Field-level encryption</strong><span>AES-256-GCM for personal data at rest.</span></li>
+    <li><strong>BigQuery</strong><span>Analytics export pipeline.</span></li>
+  </ul>
+
+  <h2>CI/CD</h2>
+  <ul class="uslugi">
+    <li><strong>GitHub Actions</strong><span>Build, test and deploy pipelines.</span></li>
+    <li><strong>Actions Runner Controller</strong><span>Autoscaling self-hosted runners on Kubernetes.</span></li>
+    <li><strong>Bare-metal runners</strong><span>Dedicated, trust-separated pools for CI versus production deploys.</span></li>
+  </ul>
+
+  <h2>Observability</h2>
+  <ul class="uslugi">
+    <li><strong>Grafana, Mimir, Loki, Alertmanager</strong><span>Self-hosted metrics, logs and alerting.</span></li>
+    <li><strong>Grafana Alloy</strong><span>Unified telemetry collector.</span></li>
+    <li><strong>kube-state-metrics, node-exporter, cAdvisor, postgres-exporter</strong><span>Metric sources across the cluster and database.</span></li>
+  </ul>
+
+  <h2>Networking &amp; access</h2>
+  <ul class="uslugi">
+    <li><strong>Tailscale</strong><span>Mesh VPN connecting cloud, on-prem and development environments.</span></li>
+    <li><strong>Caddy</strong><span>Reverse proxy with automatic TLS.</span></li>
+    <li><strong>Google OAuth2</strong><span>Access control for internal tools.</span></li>
+  </ul>
+
+  <h2>Applications</h2>
+  <ul class="uslugi">
+    <li><strong>Kotlin</strong><span>Native Android app.</span></li>
+    <li><strong>Swift</strong><span>Native iOS app.</span></li>
+    <li><strong>Windows agent</strong><span>Native desktop monitoring client.</span></li>
+    <li><strong>Web backoffice</strong><span>Internal management console.</span></li>
+  </ul>
+
+  <footer>
+    <p><a href="/#michalkids">← Back to pazdyga.pl</a></p>
+    <p>© 2026 DevOps Jakub Pazdyga</p>
+  </footer>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Umova — użyte technologie</title>
+<meta name="description" content="Stos technologiczny Umova: Next.js i Go na AWS Lambda, PostgreSQL, KSeF, integracje bankowe, płatności Revolut.">
+<link rel="canonical" href="https://pazdyga.pl/pl/tech/umova.html">
+<link rel="alternate" hreflang="en" href="https://pazdyga.pl/tech/umova.html">
+<link rel="alternate" hreflang="pl" href="https://pazdyga.pl/pl/tech/umova.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Umova — użyte technologie">
+<meta property="og:description" content="Frontend, backend, płatności i compliance za Umovą.">
+<meta property="og:url" content="https://pazdyga.pl/pl/tech/umova.html">
+<meta name="robots" content="index,follow">
+<style>
+  :root{
+    --tlo:#fbfaf7; --tekst:#16161a; --cichy:#5c5c66; --linia:#e2e0da; --akcent:#7a2e1e;
+    --karta:#ffffff;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --tlo:#121214; --tekst:#ecebe6; --cichy:#9a9aa3;
+           --linia:#2a2a2f; --akcent:#c96f52; --karta:#1a1a1d; }
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--tlo); color:var(--tekst);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .strona{max-width:56rem;margin:0 auto;padding:clamp(2rem,6vw,5rem) clamp(1.25rem,5vw,2.5rem)}
+  .jezyk{display:flex;justify-content:space-between;margin-bottom:1.25rem;font-size:.85rem}
+  .jezyk a{color:var(--cichy)}
+  header{border-bottom:1px solid var(--linia);padding-bottom:2rem;margin-bottom:2.5rem}
+  h1{font-size:clamp(1.5rem,4vw,2.1rem);line-height:1.2;margin:0 0 .5rem;letter-spacing:-.02em}
+  .rola{color:var(--cichy);font-size:1.05rem;margin:0}
+  h2{font-size:.8rem;text-transform:uppercase;letter-spacing:.09em;color:var(--cichy);
+     margin:2.75rem 0 1rem;font-weight:600}
+  h2:first-of-type{margin-top:0}
+  p{margin:0 0 1rem;max-width:42rem}
+  ul{margin:0;padding:0;list-style:none}
+  .uslugi{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+  .uslugi li{background:var(--karta);border:1px solid var(--linia);border-radius:.5rem;padding:1rem 1.1rem}
+  .uslugi strong{display:block;margin-bottom:.3rem}
+  .uslugi span{color:var(--cichy);font-size:.92rem}
+  a{color:var(--akcent);text-underline-offset:.2em}
+  a:hover{text-decoration-thickness:2px}
+  footer{border-top:1px solid var(--linia);margin-top:3.5rem;padding-top:1.5rem;
+         color:var(--cichy);font-size:.85rem}
+</style>
+</head>
+<body>
+<main class="strona">
+
+  <nav class="jezyk">
+    <a href="/pl/#umova">← pazdyga.pl</a>
+    <a href="/tech/umova.html" hreflang="en">English</a>
+  </nav>
+
+  <header>
+    <h1>Umova — użyte technologie</h1>
+    <p class="rola">Next.js i Go na AWS, z e-fakturowaniem i integracjami bankowymi wpiętymi w liczby, które liczy deterministyczny backend.</p>
+  </header>
+
+  <h2>Chmura i wdrożenie</h2>
+  <ul class="uslugi">
+    <li><strong>AWS Lambda</strong><span>Frontend serwowany jako obraz kontenera przez AWS Lambda Web Adapter — bez serwera do łatania.</span></li>
+    <li><strong>AWS</strong><span>Środowisko uruchomieniowe backendu w Go i jego baz danych.</span></li>
+    <li><strong>CloudFront</strong><span>Cache brzegowy i terminacja TLS.</span></li>
+  </ul>
+
+  <h2>Frontend</h2>
+  <ul class="uslugi">
+    <li><strong>Next.js, React, TypeScript</strong><span>App Router, server components, build standalone.</span></li>
+    <li><strong>Tailwind CSS</strong><span>Stylowanie utility-first.</span></li>
+    <li><strong>next-intl</strong><span>Produkt wielojęzyczny z kompletnością tłumaczeń wymuszaną w CI.</span></li>
+  </ul>
+
+  <h2>Backend</h2>
+  <ul class="uslugi">
+    <li><strong>Go</strong><span>Backend sterowany zdarzeniami, deterministyczne obliczenia finansowe — kwoty, terminy i odsetki nigdy nie są liczone przez model językowy.</span></li>
+    <li><strong>PostgreSQL</strong><span>System prawdy, dostęp bezpośrednio przez pgx — bez ORM-a.</span></li>
+    <li><strong>AWS Lambda</strong><span>Backend wdrażany jako obraz kontenera, ten sam wzorzec co frontend.</span></li>
+    <li><strong>OpenTelemetry</strong><span>Ślady i metryki eksportowane przez OTLP.</span></li>
+    <li><strong>WebAuthn i step-up auth</strong><span>Logowanie kluczem dostępu (passkey), z dodatkowym wyzwaniem przy wrażliwych akcjach.</span></li>
+    <li><strong>Transactional outbox</strong><span>Niezawodne dostarczanie zdarzeń z bazy danych do konsumentów.</span></li>
+  </ul>
+
+  <h2>Płatności i bankowość</h2>
+  <ul class="uslugi">
+    <li><strong>Revolut Merchant API, PayU</strong><span>Płatności kartą.</span></li>
+    <li><strong>EnableBanking</strong><span>Integracja open banking do weryfikacji rachunków i uzgadniania płatności.</span></li>
+    <li><strong>KSeF</strong><span>Krajowy System e-Faktur — uwierzytelnianie certyfikatem, faktury walidowane względem oficjalnego schematu XSD FA(3).</span></li>
+  </ul>
+
+  <h2>Compliance i AI</h2>
+  <ul class="uslugi">
+    <li><strong>AWS Bedrock, AWS Transcribe</strong><span>Generowanie dowodów i transkrypcja wspierane przez AI — celowo poza ścieżką obliczeń finansowych.</span></li>
+    <li><strong>Automatyczne wczytywanie tekstów prawnych</strong><span>Oficjalne publikacje regulacyjne parsowane na potrzeby kontroli zgodności.</span></li>
+    <li><strong>Bramka rezydencji danych UE</strong><span>Kontrola w CI blokująca regiony spoza UE i modele AI spoza profilu unijnego.</span></li>
+  </ul>
+
+  <h2>Jakość i bezpieczeństwo</h2>
+  <ul class="uslugi">
+    <li><strong>Vitest, Playwright</strong><span>Testy jednostkowe i end-to-end.</span></li>
+    <li><strong>govulncheck, gofmt, go vet</strong><span>Narzędzia Go i skan podatności w CI.</span></li>
+    <li><strong>Cloudflare Turnstile</strong><span>Ochrona przed botami na formularzach publicznych.</span></li>
+    <li><strong>Testy kontraktowe między repo</strong><span>Testy frontendu czytają kod źródłowy backendu w Go, żeby nie kłamać o API, które faktycznie wystawia.</span></li>
+    <li><strong>Skan zależności i podatności</strong><span>Blokująca bramka w CI dla zależności produkcyjnych.</span></li>
+    <li><strong>Bramki martwego kodu i odporności</strong><span>Dodatkowe kontrole w CI poza testami i lintem.</span></li>
+  </ul>
+
+  <footer>
+    <p><a href="/pl/#umova">← Powrót do pazdyga.pl</a></p>
+    <p>© 2026 DevOps Jakub Pazdyga</p>
+  </footer>
+
+</main>
+</body>
+</html>

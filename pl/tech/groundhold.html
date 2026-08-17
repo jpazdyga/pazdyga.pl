@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>groundhold — użyte technologie</title>
+<meta name="description" content="Stos technologiczny groundhold: Go, deterministyczna weryfikacja, dostawcy AWS/GCP/Azure/Hetzner/Kubernetes, MCP, SLSA provenance i SBOM.">
+<link rel="canonical" href="https://pazdyga.pl/pl/tech/groundhold.html">
+<link rel="alternate" hreflang="en" href="https://pazdyga.pl/tech/groundhold.html">
+<link rel="alternate" hreflang="pl" href="https://pazdyga.pl/pl/tech/groundhold.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="groundhold — użyte technologie">
+<meta property="og:description" content="Język, dostawcy, interfejsy i bezpieczeństwo łańcucha dostaw za groundhold.">
+<meta property="og:url" content="https://pazdyga.pl/pl/tech/groundhold.html">
+<meta name="robots" content="index,follow">
+<style>
+  :root{
+    --tlo:#fbfaf7; --tekst:#16161a; --cichy:#5c5c66; --linia:#e2e0da; --akcent:#7a2e1e;
+    --karta:#ffffff;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --tlo:#121214; --tekst:#ecebe6; --cichy:#9a9aa3;
+           --linia:#2a2a2f; --akcent:#c96f52; --karta:#1a1a1d; }
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--tlo); color:var(--tekst);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .strona{max-width:56rem;margin:0 auto;padding:clamp(2rem,6vw,5rem) clamp(1.25rem,5vw,2.5rem)}
+  .jezyk{display:flex;justify-content:space-between;margin-bottom:1.25rem;font-size:.85rem}
+  .jezyk a{color:var(--cichy)}
+  header{border-bottom:1px solid var(--linia);padding-bottom:2rem;margin-bottom:2.5rem}
+  h1{font-size:clamp(1.5rem,4vw,2.1rem);line-height:1.2;margin:0 0 .5rem;letter-spacing:-.02em}
+  .rola{color:var(--cichy);font-size:1.05rem;margin:0}
+  h2{font-size:.8rem;text-transform:uppercase;letter-spacing:.09em;color:var(--cichy);
+     margin:2.75rem 0 1rem;font-weight:600}
+  h2:first-of-type{margin-top:0}
+  p{margin:0 0 1rem;max-width:42rem}
+  ul{margin:0;padding:0;list-style:none}
+  .uslugi{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+  .uslugi li{background:var(--karta);border:1px solid var(--linia);border-radius:.5rem;padding:1rem 1.1rem}
+  .uslugi strong{display:block;margin-bottom:.3rem}
+  .uslugi span{color:var(--cichy);font-size:.92rem}
+  a{color:var(--akcent);text-underline-offset:.2em}
+  a:hover{text-decoration-thickness:2px}
+  footer{border-top:1px solid var(--linia);margin-top:3.5rem;padding-top:1.5rem;
+         color:var(--cichy);font-size:.85rem}
+</style>
+</head>
+<body>
+<main class="strona">
+
+  <nav class="jezyk">
+    <a href="/pl/#groundhold">← pazdyga.pl</a>
+    <a href="/tech/groundhold.html" hreflang="en">English</a>
+  </nav>
+
+  <header>
+    <h1>groundhold — użyte technologie</h1>
+    <p class="rola">Napisane w Go narzędzie z minimalną liczbą zależności, które deterministycznie weryfikuje kontrakty infrastruktury i wykonuje je na pięciu dostawcach oraz Kubernetesie.</p>
+  </header>
+
+  <h2>Rdzeń</h2>
+  <ul class="uslugi">
+    <li><strong>Go</strong><span>Pojedynczy plik binarny, celowo niemal zerowe zależności zewnętrzne.</span></li>
+    <li><strong>Kontrakty YAML</strong><span>Dokumenty intencji niezależne od dostawcy, weryfikowane zanim cokolwiek się wykona.</span></li>
+    <li><strong>Deterministyczny weryfikator</strong><span>Bez LLM, bez sieci, bez heurystyk — werdykty czterowartościowe: satisfied, violated, unknown, unverifiable.</span></li>
+  </ul>
+
+  <h2>Dostawcy</h2>
+  <ul class="uslugi">
+    <li><strong>AWS, GCP, Azure</strong><span>Wszyscy trzej zamknęli pętlę wykonania na realnych kontach.</span></li>
+    <li><strong>Hetzner, Cloudflare, Upstash</strong><span>Dodatkowi pełnoprawni dostawcy.</span></li>
+    <li><strong>Kubernetes</strong><span>Przetestowane na realnym klastrze k3s/k8s.</span></li>
+  </ul>
+
+  <h2>Interfejsy</h2>
+  <ul class="uslugi">
+    <li><strong>CLI</strong><span>verify, plan, converge, observe, explain.</span></li>
+    <li><strong>Serwer MCP</strong><span>Model Context Protocol — użyteczny bezpośrednio dla agentów AI, przy czym decyduje deterministyczny weryfikator.</span></li>
+  </ul>
+
+  <h2>Bezpieczeństwo łańcucha dostaw</h2>
+  <ul class="uslugi">
+    <li><strong>SLSA provenance</strong><span>Bezkluczowa atestacja pochodzenia builda na każdym publikowanym artefakcie.</span></li>
+    <li><strong>SBOM CycloneDX</strong><span>Dołączany do każdego release&#39;u.</span></li>
+    <li><strong>Odtwarzalne buildy</strong><span>Release&#39;y z sumami kontrolnymi i informacją o buildzie.</span></li>
+  </ul>
+
+  <h2>CI/CD</h2>
+  <ul class="uslugi">
+    <li><strong>GitHub Actions</strong><span>Pipeline&#39;y CI, lint i release.</span></li>
+    <li><strong>CodeQL</strong><span>Statyczna analiza bezpieczeństwa kodu.</span></li>
+    <li><strong>Dedykowany workflow bezpieczeństwa</strong><span>Uruchamiany równolegle z CI przy każdej zmianie.</span></li>
+    <li><strong>Wymuszenie DCO</strong><span>Developer Certificate of Origin wymagany przy każdym commicie.</span></li>
+  </ul>
+
+  <h2>Licencja</h2>
+  <ul class="uslugi">
+    <li><strong>Apache-2.0 / MPL-2.0</strong><span>Podwójna licencja, open source.</span></li>
+  </ul>
+
+  <footer>
+    <p><a href="/pl/#groundhold">← Powrót do pazdyga.pl</a> · <a href="https://github.com/groundhold/groundhold" rel="noopener">Kod źródłowy na GitHubie</a></p>
+    <p>© 2026 DevOps Jakub Pazdyga</p>
+  </footer>
+
+</main>
+</body>
+</html>

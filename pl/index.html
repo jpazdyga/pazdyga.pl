@@ -55,6 +55,11 @@
   .hist-dates{color:var(--cichy);font-size:.85rem;white-space:nowrap}
   .hist-desc{color:var(--cichy);font-size:.88rem;margin:.25rem 0 0}
   .hist-tools{color:var(--cichy);font-size:.78rem;margin:.25rem 0 0;font-style:italic}
+  .tool-cat{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--cichy);margin:1.5rem 0 .5rem;font-weight:600}
+  .tool-cat:first-of-type{margin-top:0}
+  .tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:0 1.5rem;margin-bottom:.25rem}
+  .tool-row{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;padding:.3rem 0;border-bottom:1px solid var(--linia)}
+  .tool-years{color:var(--cichy);font-size:.82rem;white-space:nowrap}
   a{color:var(--akcent);text-underline-offset:.2em}
   a:hover{text-decoration-thickness:2px}
   dl{display:grid;grid-template-columns:auto 1fr;gap:.4rem 1.5rem;margin:0;font-size:.95rem}
@@ -68,7 +73,7 @@
 <body>
 <main class="strona">
 
-  <nav class="jezyk"><a href="#historia">Historia projektów</a><a href="/" hreflang="en">English</a></nav>
+  <nav class="jezyk"><a href="#tooling">Narzędzia</a><a href="#historia">Historia projektów</a><a href="/" hreflang="en">English</a></nav>
 
   <header>
     <h1>DevOps Jakub Pazdyga</h1>
@@ -223,6 +228,77 @@
       <p class="hist-tools">sieci, Linux</p>
     </li>
   </ul>
+
+  <h2 id="tooling">Narzędzia</h2>
+  <p style="color:var(--cichy);font-size:.88rem;margin-top:-.5rem">Wszystko, czego używałem, i jak długo — zaokrąglone w dół, nigdy w górę.</p>
+
+  <div class="tool-cat">Systemy i sieci</div>
+  <div class="tool-grid">
+    <div class="tool-row"><span>GNU/Linux</span><span class="tool-years">&gt;25 lat</span></div>
+    <div class="tool-row"><span>SSH</span><span class="tool-years">&gt;20 lat</span></div>
+    <div class="tool-row"><span>Shell / Bash</span><span class="tool-years">&gt;20 lat</span></div>
+    <div class="tool-row"><span>Sieci i protokoły</span><span class="tool-years">&gt;20 lat</span></div>
+    <div class="tool-row"><span>Routing</span><span class="tool-years">&gt;15 lat</span></div>
+  </div>
+
+  <div class="tool-cat">Chmura</div>
+  <div class="tool-grid">
+    <div class="tool-row"><span>AWS</span><span class="tool-years">&gt;10 lat</span></div>
+    <div class="tool-row"><span>GCP</span><span class="tool-years">&gt;8 lat</span></div>
+    <div class="tool-row"><span>Azure</span><span class="tool-years">&gt;5 lat</span></div>
+  </div>
+
+  <div class="tool-cat">Infrastruktura jako kod</div>
+  <div class="tool-grid">
+    <div class="tool-row"><span>Terraform</span><span class="tool-years">&gt;8 lat</span></div>
+    <div class="tool-row"><span>Ansible</span><span class="tool-years">&gt;8 lat</span></div>
+  </div>
+
+  <div class="tool-cat">Kontenery i orkiestracja</div>
+  <div class="tool-grid">
+    <div class="tool-row"><span>Docker</span><span class="tool-years">&gt;12 lat</span></div>
+    <div class="tool-row"><span>Kubernetes</span><span class="tool-years">&gt;8 lat</span></div>
+    <div class="tool-row"><span>Kubernetes Operators</span><span class="tool-years">3 lata</span></div>
+  </div>
+
+  <div class="tool-cat">CI/CD</div>
+  <div class="tool-grid">
+    <div class="tool-row"><span>Jenkins</span><span class="tool-years">&gt;12 lat</span></div>
+    <div class="tool-row"><span>GitLab CI</span><span class="tool-years">&gt;5 lat</span></div>
+    <div class="tool-row"><span>GitHub Actions</span><span class="tool-years">&gt;5 lat</span></div>
+    <div class="tool-row"><span>ArgoCD</span><span class="tool-years">&gt;5 lat</span></div>
+  </div>
+
+  <div class="tool-cat">Obserwowalność</div>
+  <div class="tool-grid">
+    <div class="tool-row"><span>Monitoring infrastruktury</span><span class="tool-years">&gt;10 lat</span></div>
+    <div class="tool-row"><span>Grafana</span><span class="tool-years">&gt;8 lat</span></div>
+    <div class="tool-row"><span>Prometheus i Loki</span><span class="tool-years">&gt;5 lat</span></div>
+  </div>
+
+  <div class="tool-cat">Dane</div>
+  <div class="tool-grid">
+    <div class="tool-row"><span>PostgreSQL</span><span class="tool-years">&gt;5 lat</span></div>
+  </div>
+
+  <div class="tool-cat">Języki</div>
+  <div class="tool-grid">
+    <div class="tool-row"><span>Python</span><span class="tool-years">&gt;8 lat</span></div>
+    <div class="tool-row"><span>Go</span><span class="tool-years">&gt;5 lat</span></div>
+  </div>
+
+  <div class="tool-cat">Usługi AWS</div>
+  <div class="tool-grid">
+    <div class="tool-row"><span>EC2</span><span class="tool-years">&gt;10 lat</span></div>
+    <div class="tool-row"><span>EKS</span><span class="tool-years">&gt;5 lat</span></div>
+    <div class="tool-row"><span>ECS</span><span class="tool-years">&gt;5 lat</span></div>
+    <div class="tool-row"><span>CloudWatch</span><span class="tool-years">&gt;5 lat</span></div>
+  </div>
+
+  <div class="tool-cat">Usługi GCP</div>
+  <div class="tool-grid">
+    <div class="tool-row"><span>Cloud SQL, IAM, Storage, CLI, Container Registry, Secret Manager</span><span class="tool-years">&gt;8 lat</span></div>
+  </div>
 
   <h2>Kontakt</h2>
   <p>

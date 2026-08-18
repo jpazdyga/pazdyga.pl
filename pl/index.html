@@ -29,7 +29,7 @@
     -webkit-font-smoothing:antialiased;
   }
   .strona{max-width:56rem;margin:0 auto;padding:clamp(2rem,6vw,5rem) clamp(1.25rem,5vw,2.5rem)}
-  .jezyk{display:flex;justify-content:flex-end;margin-bottom:1.25rem;font-size:.85rem}
+  .jezyk{display:flex;justify-content:flex-end;gap:1.25rem;margin-bottom:1.25rem;font-size:.85rem}
   .jezyk a{color:var(--cichy)}
   header{border-bottom:1px solid var(--linia);padding-bottom:2rem;margin-bottom:2.5rem}
   h1{font-size:clamp(1.75rem,4.5vw,2.5rem);line-height:1.2;margin:0 0 .5rem;letter-spacing:-.02em}
@@ -68,7 +68,7 @@
 <body>
 <main class="strona">
 
-  <nav class="jezyk"><a href="/" hreflang="en">English</a></nav>
+  <nav class="jezyk"><a href="#historia">Historia projektów</a><a href="/" hreflang="en">English</a></nav>
 
   <header>
     <h1>DevOps Jakub Pazdyga</h1>
@@ -126,7 +126,7 @@
     <a class="stack" href="/pl/tech/groundhold.html">Użyte technologie →</a>
   </div>
 
-  <h2>Historia projektów</h2>
+  <h2 id="historia">Historia projektów</h2>
   <p style="color:var(--cichy);font-size:.88rem;margin-top:-.5rem">Każdy projekt od 2000 roku, najpierw narzędzia.</p>
   <ul class="historia">
     <li class="hist-item">
